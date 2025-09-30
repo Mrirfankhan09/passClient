@@ -1,6 +1,8 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { PasswordContext } from './Passwordcontext'
 
 
 // export const AuthContext = createContext();
@@ -53,6 +55,10 @@ export const AppProvider = ({ children }) => {
     const [activities, setActivities] = useState([]);
     const [time, setTime] = useState(new Date());
 
+
+    const [passwords, setPasswords] = useState([]);
+    console.log(passwords)
+
     const activity = async () => {
         const response = await axios.get("http://localhost:5000/api/activity", { withCredentials: true });
 
@@ -62,11 +68,11 @@ export const AppProvider = ({ children }) => {
     }
     useEffect(() => {
         activity();
-    }, []);
+    }, [passwords]);
 
 
     return (
-        <AppContext.Provider value={{time,activities, isOpen, setIsOpen }}>
+        <AppContext.Provider value={{passwords,setPasswords, time, activities, isOpen, setIsOpen }}>
             {children}
         </AppContext.Provider>
     )

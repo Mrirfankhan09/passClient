@@ -4,6 +4,7 @@ import { AuthContext } from './AuthContext'
 // import axiosInstance from "../utils/axiosInstance";
 import axios from "axios";
 import { checkPasswordStrength } from "../utils/passwordstrength";
+import { AppContext } from "./Appcontext";
 // import { useNavigate } from "react-router-dom";
 // 1. Create context
 export const PasswordContext = createContext();
@@ -11,7 +12,7 @@ export const PasswordContext = createContext();
 // 2. Create provider
 export const PasswordProvider = ({ children }) => {
   // const navigate = useNavigate();
-  const [passwords, setPasswords] = useState([]);
+ const {passwords,setPasswords} = useContext(AppContext)
   const { user } = useContext(AuthContext);
 
   // console.log("Auth Token in PasswordContext:", user);
