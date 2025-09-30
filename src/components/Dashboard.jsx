@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { KeyRound, AlertTriangle, RefreshCw, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { PasswordContext } from "../context/PasswordContext";
+import { PasswordContext } from "../context/Passwordcontext";
 import { checkPasswordStrength } from "../utils/passwordstrength";
 import { AppContext } from "../context/Appcontext";
 import dayjs from "dayjs";
