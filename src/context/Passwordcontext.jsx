@@ -25,7 +25,7 @@ export const PasswordProvider = ({ children }) => {
     //   return;
     // }
     try {
-      const res = await axios.get("http://localhost:5000/api/passwords", { withCredentials: true });
+      const res = await axios.get("https://passserver.onrender.com/api/passwords", { withCredentials: true });
       console.log("Fetched Passwords:", res.data);
       setPasswords(res.data);
     } catch (err) {
@@ -43,7 +43,7 @@ export const PasswordProvider = ({ children }) => {
 
   // Add new password
   const addPassword = async (newPassword) => {
-    const res = await axios.post("http://localhost:5000/api/passwords/add", newPassword, { withCredentials: true });
+    const res = await axios.post("https://passserver.onrender.com/api/passwords/add", newPassword, { withCredentials: true });
     setPasswords((prev) => [...prev, newPassword]);
     fetchPasswords();
   };
@@ -51,7 +51,7 @@ export const PasswordProvider = ({ children }) => {
   // Delete password
   const deletePassword = async (id) => {
     console.log("Deleting password with id:", id);
-    const res = await axios.delete(`http://localhost:5000/api/passwords/${id}`, { withCredentials: true });
+    const res = await axios.delete(`https://passserver.onrender.com/api/passwords/${id}`, { withCredentials: true });
     console.log("Delete response:", res.data);
     fetchPasswords();
 
@@ -60,7 +60,7 @@ export const PasswordProvider = ({ children }) => {
 
   // Update password
   const updatePassword = async (id, updatedData) => {
-    const res = await axios.put(`http://localhost:5000/api/passwords/${id}`, updatedData, { withCredentials: true });
+    const res = await axios.put(`https://passserver.onrender.com/api/passwords/${id}`, updatedData, { withCredentials: true });
     console.log("Update response:", res.data);
     fetchPasswords();
     setPasswords((prev) =>

@@ -23,7 +23,7 @@ const Passwords = () => {
     if (!visibleIds.includes(id)) {
       // Always fetch decrypted password when showing
       try {
-        const res = await axios.get(`http://localhost:5000/api/passwords/decrypt/${id}`, { withCredentials: true });
+        const res = await axios.get(`https://passserver.onrender.com/api/passwords/decrypt/${id}`, { withCredentials: true });
         console.log(res)
         setDecryptedPasswords((prev) => ({ ...prev, [id]: res.data.password }));
       } catch (err) {

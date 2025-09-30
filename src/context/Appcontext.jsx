@@ -13,7 +13,7 @@ import { PasswordContext } from './Passwordcontext'
 
 //   const signup = async (name, email, password) => {
 //     try {
-//       const res = await axios.post("http://localhost:5000/api/auth/signup", { name, email, password });
+//       const res = await axios.post("https://passserver.onrender.com/api/auth/signup", { name, email, password });
 //       setUser(res.data.user);
 //       setToken(res.data.token);
 //       localStorage.setItem("token", res.data.token);
@@ -25,7 +25,7 @@ import { PasswordContext } from './Passwordcontext'
 
 //   const login = async (email, password) => {
 //     try {
-//       const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+//       const res = await axios.post("https://passserver.onrender.com/api/auth/login", { email, password });
 //       setUser(res.data.user);
 //       setToken(res.data.token);
 //       localStorage.setItem("token", res.data.token);
@@ -60,7 +60,7 @@ export const AppProvider = ({ children }) => {
     console.log(passwords)
 
     const activity = async () => {
-        const response = await axios.get("http://localhost:5000/api/activity", { withCredentials: true });
+        const response = await axios.get("https://passserver.onrender.com/api/activity", { withCredentials: true });
 
         setTime(new Date(response.data[0].timestamp));
         setActivities(response.data);
